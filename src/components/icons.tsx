@@ -31,8 +31,8 @@ const ShadcnIcon = () => (
 			y2="208"
 			fill="none"
 			stroke="currentColor"
-			stroke-linecap="round"
-			stroke-linejoin="round"
+			strokeLinecap="round"
+			strokeLinejoin="round"
 			strokeWidth="32"
 		/>
 		<line
@@ -82,54 +82,49 @@ const AngularIcon = () => (
 		height={36}
 	>
 		<title>Angular Logo</title>
-		<g clip-path="url(#a)">
+		<g clipPath="url(#angular-a)">
 			<path
-				_ngcontent-ng-c249881476=""
-				fill="url(#b)"
+				fill="url(#angular-b)"
 				d="m222.077 39.192-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
 			/>
 			<path
-				_ngcontent-ng-c249881476=""
-				fill="url(#c)"
+				fill="url(#angular-c)"
 				d="m222.077 39.192-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
 			/>
 		</g>
 		<defs>
 			<linearGradient
-				_ngcontent-ng-c249881476=""
-				id="b"
+				id="angular-b"
 				x1="49.009"
 				x2="225.829"
 				y1="213.75"
 				y2="129.722"
 				gradientUnits="userSpaceOnUse"
 			>
-				<stop _ngcontent-ng-c249881476="" stop-color="#E40035" />
-				<stop _ngcontent-ng-c249881476="" offset=".24" stop-color="#F60A48" />
-				<stop _ngcontent-ng-c249881476="" offset=".352" stop-color="#F20755" />
-				<stop _ngcontent-ng-c249881476="" offset=".494" stop-color="#DC087D" />
-				<stop _ngcontent-ng-c249881476="" offset=".745" stop-color="#9717E7" />
-				<stop _ngcontent-ng-c249881476="" offset="1" stop-color="#6C00F5" />
+				<stop stopColor="#E40035" />
+				<stop offset=".24" stopColor="#F60A48" />
+				<stop offset=".352" stopColor="#F20755" />
+				<stop offset=".494" stopColor="#DC087D" />
+				<stop offset=".745" stopColor="#9717E7" />
+				<stop offset="1" stopColor="#6C00F5" />
 			</linearGradient>
 			<linearGradient
-				_ngcontent-ng-c249881476=""
-				id="c"
+				id="angular-c"
 				x1="41.025"
 				x2="156.741"
 				y1="28.344"
 				y2="160.344"
 				gradientUnits="userSpaceOnUse"
 			>
-				<stop _ngcontent-ng-c249881476="" stop-color="#FF31D9" />
+				<stop stopColor="#FF31D9" />
 				<stop
-					_ngcontent-ng-c249881476=""
 					offset="1"
-					stop-color="#FF5BE1"
-					stop-opacity="0"
+					stopColor="#FF5BE1"
+					stopOpacity="0"
 				/>
 			</linearGradient>
-			<clipPath _ngcontent-ng-c249881476="" id="a">
-				<path _ngcontent-ng-c249881476="" fill="#fff" d="M0 0h223v236H0z" />
+			<clipPath id="angular-a">
+				<path fill="#fff" d="M0 0h223v236H0z" />
 			</clipPath>
 		</defs>
 	</svg>
@@ -255,7 +250,7 @@ const LitIcon = () => (
 		<path
 			d="M384 768V384l192-192v384m-480 0h96l96 192-96 192L0 768z"
 			fill="#283198"
-			fill-rule="evenodd"
+			fillRule="evenodd"
 		/>
 		<path
 			d="M192 576V192L384 0v384m192 576V576l192-192v384M0 768V384l192 192"
