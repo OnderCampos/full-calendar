@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn build",
+    "test": "npx jest --coverage --runInBand"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -57,12 +58,37 @@
     "eslint": "^9.39.2",
     "eslint-config-next": "16.1.4",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "@types/jest": "^30.0.0"
   },
   "pnpm": {
     "overrides": {
       "@types/react": "19.2.9",
       "@types/react-dom": "19.2.3"
+    }
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "testEnvironment": "node",
+    "transform": {
+      "^.+.(ts|tsx)$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.json"
+        }
+      ]
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/"
     }
   }
 }
