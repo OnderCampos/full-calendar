@@ -128,7 +128,8 @@
 }
 
 /* Add these styles to your global CSS */
-.drop-target {
+.drop-target,
+.drop-target::after {
 	position: relative;
 }
 
@@ -144,7 +145,8 @@
 	transition: opacity 0.2s ease;
 }
 
-.drop-target.bg-primary\/10::after {
+.drop-target.bg-primary\/10::after,
+.drop-target:is(.bg-primary\/10)::after {
 	opacity: 1;
 }
 
@@ -155,24 +157,4 @@
 
 [draggable="true"]:active {
 	cursor: grabbing;
-}
-
-.drop-target {
-	position: relative;
-}
-
-.drop-target::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-color: rgba(var(--primary), 0.05);
-	border: 2px dashed rgba(var(--primary), 0.3);
-	pointer-events: none;
-	z-index: 10;
-	opacity: 0;
-	transition: opacity 0.2s ease;
-}
-
-.drop-target.bg-primary\/10::after {
-	opacity: 1;
 }
