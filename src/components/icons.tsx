@@ -31,8 +31,8 @@ const ShadcnIcon = () => (
 			y2="208"
 			fill="none"
 			stroke="currentColor"
-			stroke-linecap="round"
-			stroke-linejoin="round"
+			strokeLinecap="round"
+			strokeLinejoin="round"
 			strokeWidth="32"
 		/>
 		<line
