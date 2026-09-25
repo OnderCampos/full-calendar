@@ -31,8 +31,8 @@ const ShadcnIcon = () => (
 			y2="208"
 			fill="none"
 			stroke="currentColor"
-			stroke-linecap="round"
-			stroke-linejoin="round"
+			strokeLinecap="round"
+			strokeLinejoin="round"
 			strokeWidth="32"
 		/>
 		<line
@@ -82,7 +82,7 @@ const AngularIcon = () => (
 		height={36}
 	>
 		<title>Angular Logo</title>
-		<g clip-path="url(#a)">
+		<g clipPath="url(#a)">
 			<path
 				_ngcontent-ng-c249881476=""
 				fill="url(#b)"
@@ -104,12 +104,12 @@ const AngularIcon = () => (
 				y2="129.722"
 				gradientUnits="userSpaceOnUse"
 			>
-				<stop _ngcontent-ng-c249881476="" stop-color="#E40035" />
-				<stop _ngcontent-ng-c249881476="" offset=".24" stop-color="#F60A48" />
-				<stop _ngcontent-ng-c249881476="" offset=".352" stop-color="#F20755" />
-				<stop _ngcontent-ng-c249881476="" offset=".494" stop-color="#DC087D" />
-				<stop _ngcontent-ng-c249881476="" offset=".745" stop-color="#9717E7" />
-				<stop _ngcontent-ng-c249881476="" offset="1" stop-color="#6C00F5" />
+				<stop _ngcontent-ng-c249881476="" stopColor="#E40035" />
+				<stop _ngcontent-ng-c249881476="" offset=".24" stopColor="#F60A48" />
+				<stop _ngcontent-ng-c249881476="" offset=".352" stopColor="#F20755" />
+				<stop _ngcontent-ng-c249881476="" offset=".494" stopColor="#DC087D" />
+				<stop _ngcontent-ng-c249881476="" offset=".745" stopColor="#9717E7" />
+				<stop _ngcontent-ng-c249881476="" offset="1" stopColor="#6C00F5" />
 			</linearGradient>
 			<linearGradient
 				_ngcontent-ng-c249881476=""
@@ -120,12 +120,12 @@ const AngularIcon = () => (
 				y2="160.344"
 				gradientUnits="userSpaceOnUse"
 			>
-				<stop _ngcontent-ng-c249881476="" stop-color="#FF31D9" />
+				<stop _ngcontent-ng-c249881476="" stopColor="#FF31D9" />
 				<stop
 					_ngcontent-ng-c249881476=""
 					offset="1"
-					stop-color="#FF5BE1"
-					stop-opacity="0"
+					stopColor="#FF5BE1"
+					stopOpacity="0"
 				/>
 			</linearGradient>
 			<clipPath _ngcontent-ng-c249881476="" id="a">
@@ -255,7 +255,7 @@ const LitIcon = () => (
 		<path
 			d="M384 768V384l192-192v384m-480 0h96l96 192-96 192L0 768z"
 			fill="#283198"
-			fill-rule="evenodd"
+			fillRule="evenodd"
 		/>
 		<path
 			d="M192 576V192L384 0v384m192 576V576l192-192v384M0 768V384l192 192"
