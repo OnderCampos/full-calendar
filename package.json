@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn build",
+    "test": "npx jest --coverage --runInBand"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -57,7 +58,12 @@
     "eslint": "^9.39.2",
     "eslint-config-next": "16.1.4",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "jest": "^30.0.5",
+    "babel-jest": "^30.0.5",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1"
   },
   "pnpm": {
     "overrides": {
