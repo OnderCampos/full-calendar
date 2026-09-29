@@ -64,5 +64,15 @@
       "@types/react": "19.2.9",
       "@types/react-dom": "19.2.3"
     }
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 80.0,
+        "functions": 80.0,
+        "lines": 80.0,
+        "statements": 80.0
+      }
+    }
   }
 }
