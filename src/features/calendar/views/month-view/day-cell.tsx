@@ -148,7 +148,7 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
                 </AddEditEventDialog>
               </div>
             ) : (
-              [0, 1, 2].map(renderEventAtPosition)
+              [0, 1, 2].map((position) => renderEventAtPosition(position))
             )}
           </motion.div>
 

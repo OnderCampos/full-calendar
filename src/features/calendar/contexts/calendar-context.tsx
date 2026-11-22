@@ -127,7 +127,7 @@ export function CalendarProvider({
   };
 
   const setStartOfDayHour = (newVal: number) => {
-    if (!isNaN(newVal) && newVal >= MIN_SCROLL_HOUR && newVal <= MAX_SCROLL_HOUR) {
+    if (!Number.isNaN(newVal) && newVal >= MIN_SCROLL_HOUR && newVal <= MAX_SCROLL_HOUR) {
       setStartOfDayHourState(newVal);
       updateSettings({ startOfDayHour: newVal });
     }

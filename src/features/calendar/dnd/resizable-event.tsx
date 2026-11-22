@@ -63,7 +63,7 @@ export function ResizableEvent({
 
   const handleResize: ResizeCallback = useCallback(
     (_, direction, ref) => {
-      const newHeight = parseInt(ref.style.height, 10);
+      const newHeight = Number.parseInt(ref.style.height, 10);
       const newDuration = Math.max(
         MIN_DURATION,
         Math.round((newHeight + 8) * MINUTES_PER_PIXEL),

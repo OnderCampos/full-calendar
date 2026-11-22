@@ -38,9 +38,9 @@ export function DateTimePicker({ form, field }: DatePickerProps) {
     const newDate = new Date(currentDate);
 
     if (type === "hour") {
-      newDate.setHours(parseInt(value, 10));
+      newDate.setHours(Number.parseInt(value, 10));
     } else if (type === "minute") {
-      newDate.setMinutes(parseInt(value, 10));
+      newDate.setMinutes(Number.parseInt(value, 10));
     } else if (type === "ampm") {
       const hours = newDate.getHours();
       if (value === "AM" && hours >= 12) {
