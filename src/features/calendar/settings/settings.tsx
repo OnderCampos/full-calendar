@@ -41,7 +41,7 @@ export function Settings() {
   const isDotVariant = badgeVariant === "dot";
 
   const onChangeStartOfDay = (e: ChangeEvent<HTMLInputElement>) => {
-    const val = parseInt(e.target.value, 10);
+    const val = Number.parseInt(e.target.value, 10);
     if (!isNaN(val) && val >= MIN_SCROLL_HOUR && val <= MAX_SCROLL_HOUR) {
       setStartOfDayHour(val);
     }
