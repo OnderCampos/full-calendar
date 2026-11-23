@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type * as React from "react";
 import {
   DayPicker as ReactDayPicker,
   getDefaultClassNames,
@@ -8,7 +9,7 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export type DayPickerProps = React.ComponentProps<typeof ReactDayPicker>;
+type DayPickerProps = React.ComponentProps<typeof ReactDayPicker>;
 
 function DayPicker({
   className,
