@@ -8,7 +8,6 @@ import {
 	eachDayOfInterval,
 	endOfMonth,
 	endOfWeek,
-	endOfYear,
 	format,
 	isSameDay,
 	isSameMonth,
@@ -295,67 +294,6 @@ export const getFirstLetters = (str: string): string => {
 	return `${words[0].charAt(0).toUpperCase()}${words[1].charAt(0).toUpperCase()}`;
 };
 
-export const getEventsForDay = (
-	events: IEvent[],
-	date: Date,
-	isWeek = false,
-): IEvent[] => {
-	const targetDate = startOfDay(date);
-	return events
-		.filter((event) => {
-			const startOfDayForEventStart = startOfDay(parseISO(event.startDate));
-			const startOfDayForEventEnd = startOfDay(parseISO(event.endDate));
-			if (isWeek) {
-				return (
-					event.startDate !== event.endDate &&
-					startOfDayForEventStart <= targetDate &&
-					startOfDayForEventEnd >= targetDate
-				);
-			}
-			return (
-				startOfDayForEventStart <= targetDate &&
-				startOfDayForEventEnd >= targetDate
-			);
-		})
-		.map((event) => {
-			const eventStart = startOfDay(parseISO(event.startDate));
-			const eventEnd = startOfDay(parseISO(event.endDate));
-			let point: "start" | "end" | "none" | undefined;
-
-			if (isSameDay(eventStart, eventEnd)) {
-				point = "none";
-			} else if (isSameDay(eventStart, targetDate)) {
-				point = "start";
-			} else if (isSameDay(eventEnd, targetDate)) {
-				point = "end";
-			}
-
-			return { ...event, point };
-		});
-};
-
-export const getWeekDates = (date: Date): Date[] => {
-	const startDate = startOfWeek(date, { weekStartsOn: 1 });
-	return Array.from({ length: 7 }, (_, i) => addDays(startDate, i));
-};
-
-export const getEventsForWeek = (events: IEvent[], date: Date): IEvent[] => {
-	const weekDates = getWeekDates(date);
-	const startOfWeekDate = weekDates[0];
-	const endOfWeekDate = weekDates[6];
-
-	return events.filter((event) => {
-		const eventStart = parseISO(event.startDate);
-		const eventEnd = parseISO(event.endDate);
-		return (
-			isValid(eventStart) &&
-			isValid(eventEnd) &&
-			eventStart <= endOfWeekDate &&
-			eventEnd >= startOfWeekDate
-		);
-	});
-};
-
 export const getEventsForMonth = (events: IEvent[], date: Date): IEvent[] => {
 	const startOfMonthDate = startOfMonth(date);
 	const endOfMonthDate = endOfMonth(date);
@@ -368,24 +306,6 @@ export const getEventsForMonth = (events: IEvent[], date: Date): IEvent[] => {
 			isValid(eventEnd) &&
 			eventStart <= endOfMonthDate &&
 			eventEnd >= startOfMonthDate
-		);
-	});
-};
-
-export const getEventsForYear = (events: IEvent[], date: Date): IEvent[] => {
-	if (!events || !Array.isArray(events) || !isValid(date)) return [];
-
-	const startOfYearDate = startOfYear(date);
-	const endOfYearDate = endOfYear(date);
-
-	return events.filter((event) => {
-		const eventStart = parseISO(event.startDate);
-		const eventEnd = parseISO(event.endDate);
-		return (
-			isValid(eventStart) &&
-			isValid(eventEnd) &&
-			eventStart <= endOfYearDate &&
-			eventEnd >= startOfYearDate
 		);
 	});
 };
@@ -418,7 +338,7 @@ export const getBgColor = (color: string): string => {
 	return colorClasses[color as TEventColor] || "";
 };
 
-export const useGetEventsByMode = (events: IEvent[]) => {
+const useGetEventsByMode = (events: IEvent[]) => {
 	const { view, selectedDate } = useCalendar();
 
 	switch (view) {

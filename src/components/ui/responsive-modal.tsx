@@ -9,22 +9,6 @@ import { cn } from "@/lib/utils";
 const Modal = DialogPrimitive.Root;
 const ModalTrigger = DialogPrimitive.Trigger;
 const ModalClose = DialogPrimitive.Close;
-const ModalPortal = DialogPrimitive.Portal;
-
-const ModalOverlay = (props: DialogPrimitive.DialogOverlayProps) => {
-	return (
-		<DialogPrimitive.Overlay
-			{...props}
-			className={cn(
-				"fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",
-				"data-[state=open]:animate-in data-[state=closed]:animate-out",
-				"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-				props.className,
-			)}
-		/>
-	);
-};
-
 const ModalVariants = cva(
 	cn(
 		"fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out",
@@ -62,8 +46,10 @@ const ModalContent = ({
 	...props
 }: ModalContentProps) => {
 	return (
-		<ModalPortal>
-			<ModalOverlay />
+		<DialogPrimitive.Portal>
+			<DialogPrimitive.Overlay
+				className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+			/>
 			<DialogPrimitive.Content
 				{...props}
 				aria-describedby="responsive-modal-description"
@@ -75,7 +61,7 @@ const ModalContent = ({
 					<span className="sr-only">Close</span>
 				</ModalClose>
 			</DialogPrimitive.Content>
-		</ModalPortal>
+		</DialogPrimitive.Portal>
 	);
 };
 
@@ -115,8 +101,6 @@ const ModalDescription = (props: DialogPrimitive.DialogDescriptionProps) => (
 
 export {
 	Modal,
-	ModalPortal,
-	ModalOverlay,
 	ModalTrigger,
 	ModalClose,
 	ModalContent,
