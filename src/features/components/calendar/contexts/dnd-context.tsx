@@ -11,6 +11,7 @@ import React, {
 } from "react";
 import { toast } from "sonner";
 import { useCalendar } from "@/features/calendar/contexts/calendar-context";
+import { calculateDroppedEventDates } from "@/features/calendar/dnd/helpers";
 import type { IEvent } from "@/features/calendar/interfaces";
 
 interface PendingDropData {
@@ -69,32 +70,6 @@ export function DndProvider({
     setDragState({ draggedEvent: null, isDragging: false });
   }, []);
 
-  const calculateNewDates = useCallback(
-    (event: IEvent, targetDate: Date, hour?: number, minute?: number) => {
-      const originalStart = new Date(event.startDate);
-      const originalEnd = new Date(event.endDate);
-      const duration = originalEnd.getTime() - originalStart.getTime();
-
-      const newStart = new Date(targetDate);
-      if (hour !== undefined) {
-        newStart.setHours(hour, minute || 0, 0, 0);
-      } else {
-        newStart.setHours(
-          originalStart.getHours(),
-          originalStart.getMinutes(),
-          0,
-          0,
-        );
-      }
-
-      return {
-        newStart,
-        newEnd: new Date(newStart.getTime() + duration),
-      };
-    },
-    [],
-  );
-
   const isSamePosition = useCallback((date1: Date, date2: Date) => {
     return date1.getTime() === date2.getTime();
   }, []);
@@ -104,7 +79,7 @@ export function DndProvider({
       const { draggedEvent } = dragState;
       if (!draggedEvent) return;
 
-      const { newStart, newEnd } = calculateNewDates(
+      const { newStart, newEnd } = calculateDroppedEventDates(
         draggedEvent,
         targetDate,
         hour,
@@ -134,7 +109,7 @@ export function DndProvider({
         endDrag();
       }
     },
-    [dragState, calculateNewDates, isSamePosition, endDrag, showConfirmation],
+    [dragState, isSamePosition, endDrag, showConfirmation],
   );
 
   const handleConfirmDrop = useCallback(() => {
