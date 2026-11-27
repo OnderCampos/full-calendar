@@ -8,14 +8,12 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export type DayPickerProps = React.ComponentProps<typeof ReactDayPicker>;
-
 function DayPicker({
   className,
   classNames,
   showOutsideDays = true,
   ...props
-}: DayPickerProps) {
+}: React.ComponentProps<typeof ReactDayPicker>) {
   const defaultClassNames = getDefaultClassNames();
 
   return (
